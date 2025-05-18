@@ -102,17 +102,19 @@ img {
 }
 
 .project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 🔹 Columnas iguales */
   gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
 }
 
 
 /* === TARJETA DE PROYECTO === */
 .project-card {
-  width: 280px;                /* Anchura fija */
-  height: 420px;               /* Altura fija */
+  width: 100%;
+  max-width: 300px;              /* 🔹 Anchura igual para todas */
+  height: 440px;                 /* 🔹 Altura exacta igual para todas */
   border-radius: 16px;
   overflow: hidden;
   background-color: #fff;
@@ -120,7 +122,6 @@ img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
 }
 
@@ -131,7 +132,7 @@ img {
 
 .project-img-wrapper {
   width: 100%;
-  height: 200px;               /* Altura fija para la imagen */
+  height: 200px;                /* 🔹 Mismo alto para todas las imágenes */
   overflow: hidden;
   position: relative;
 }
@@ -167,6 +168,7 @@ img {
   color: #888;
 }
 
+
 .modal-descripcion {
   font-size: 1rem;
   line-height: 1.6;
@@ -174,7 +176,6 @@ img {
   color: #444;
   text-align: justify;
 }
-
 
 
 /* === FOOTER === */
@@ -224,13 +225,14 @@ img {
   height: 100%;
   background: rgba(0,0,0,0.7);
   z-index: 9999;
+  padding: 1rem;
 }
 
 .modal-contenido {
   background: #fff;
   padding: 2rem;
   max-width: 700px;
-  width: 90%;
+  width: 100%;
   border-radius: 12px;
   position: relative;
   text-align: center;
@@ -303,12 +305,18 @@ img {
 }
 
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE EXTRA === */
 @media (max-width: 500px) {
-  .botones .btn-ainhoa,
-  .project-card {
+  .botones .btn-ainhoa {
     width: 100%;
-    max-width: 90%;
     text-align: center;
+  }
+
+  .modal-contenido {
+    padding: 1.5rem 1rem;
+  }
+
+  .modal-galeria img {
+    max-width: 100%;
   }
 }
